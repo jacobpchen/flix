@@ -9,11 +9,8 @@
 import UIKit
 import AlamofireImage
 class MovieGridViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    @IBOutlet var tap: UITapGestureRecognizer!
     var movies = [[String:Any]]()
     
     override func viewDidLoad() {
@@ -30,7 +27,6 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
         let width = (view.frame.size.width - layout.minimumInteritemSpacing * 2) / 3
         layout.itemSize = CGSize(width: width, height: width * 3 / 2)
         
-
         // Do any additional setup after loading the view.
         let url = URL(string: "https://api.themoviedb.org/3/movie/297762/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -44,18 +40,9 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
             
             self.movies = dataDictionary["results"] as! [[String:Any]]
             self.collectionView.reloadData()
-            
-            
-            print(self.movies)
-
            }
         }
         task.resume()
-    }
-    
-    @IBAction func tap(_ sender: Any) {
-        print("tapped")
-        
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
@@ -72,19 +59,14 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
 
         cell.posterView.af.setImage(withURL: posterUrl!)
         return cell
-        
-
     }
     
 
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        
         let cell = sender as! UICollectionViewCell
         let indexPath = collectionView.indexPath(for: cell)
         let movie = movies[indexPath!.item]

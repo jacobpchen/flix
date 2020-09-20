@@ -222,7 +222,6 @@
                     <navigationItem key="navigationItem" title="Superhero" id="kg4-5u-2K1"/>
                     <connections>
                         <outlet property="collectionView" destination="sZ7-FM-h34" id="eus-88-yR7"/>
-                        <outlet property="tap" destination="9ho-NU-HCp" id="4vl-WY-hot"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hJg-Fv-R5t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -232,11 +231,6 @@
                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                 </collectionViewFlowLayout>
-                <tapGestureRecognizer id="9ho-NU-HCp">
-                    <connections>
-                        <action selector="tap:" destination="Wkk-zn-84j" id="hdI-PF-Rdp"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="837.68115942028987" y="859.82142857142856"/>
         </scene>
